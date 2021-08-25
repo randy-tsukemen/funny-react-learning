@@ -7,27 +7,34 @@
   "license": "MIT",
   "scripts": {
     "start": "node lib/server.js",
-    "dev": "nodemon --exec babel-node lib/server.js"
+    "dev_webpack": "webpack --mode=development -wd eval",
+    "dev": "nodemon --exec babel-node lib/server.js",
+    "dev_pm2": "pm2 start lib/server.js --watch --interpreter babel-node"
   },
   "babel": {
     "presets": [
-      "react",
-      "env",
-      "stage-2"
+      "@babel/preset-env",
+      "@babel/preset-react"
     ]
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "webpack-cli": "^4.8.0"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.51.1"
   }
 }
