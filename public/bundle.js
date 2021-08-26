@@ -31,6 +31,50 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 
 /***/ }),
 
+/***/ "./lib/DataApi.js":
+/*!************************!*\
+  !*** ./lib/DataApi.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar DataApi = function DataApi(rawData) {\n  var mapIntoObject = function mapIntoObject(arr) {\n    return arr.reduce(function (acc, curr) {\n      acc[curr.id] = curr;\n      return acc;\n    }, {});\n  };\n\n  var getArticles = function getArticles() {\n    // console.log(rawData);\n    return mapIntoObject(rawData.articles);\n  };\n\n  var getAuthors = function getAuthors() {\n    return mapIntoObject(rawData.authors);\n  };\n\n  return {\n    getArticles: getArticles,\n    getAuthors: getAuthors\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DataApi);\n\n//# sourceURL=webpack://advanced-react/./lib/DataApi.js?");
+
+/***/ }),
+
+/***/ "./lib/components/App.js":
+/*!*******************************!*\
+  !*** ./lib/components/App.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _DataApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DataApi */ \"./lib/DataApi.js\");\n/* harmony import */ var _testData_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../testData.json */ \"./lib/testData.json\");\n/* harmony import */ var _ArticleList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ArticleList */ \"./lib/components/ArticleList.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\nvar _DataApi = (0,_DataApi__WEBPACK_IMPORTED_MODULE_1__.default)(_testData_json__WEBPACK_IMPORTED_MODULE_2__.data),\n    getArticles = _DataApi.getArticles,\n    getAuthors = _DataApi.getAuthors;\n\nvar App = function App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getArticles()),\n      _useState2 = _slicedToArray(_useState, 2),\n      articles = _useState2[0],\n      setArticles = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getAuthors()),\n      _useState4 = _slicedToArray(_useState3, 2),\n      authors = _useState4[0],\n      setAuthors = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(42),\n      _useState6 = _slicedToArray(_useState5, 2),\n      state = _useState6[0],\n      setState = _useState6[1];\n\n  console.log(articles);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ArticleList__WEBPACK_IMPORTED_MODULE_3__.default, {\n    articles: articles,\n    authors: authors\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://advanced-react/./lib/components/App.js?");
+
+/***/ }),
+
+/***/ "./lib/components/Article.js":
+/*!***********************************!*\
+  !*** ./lib/components/Article.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Article = function Article(props) {\n  var article = props.article,\n      author = props.author; // console.log(props.article);\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"article\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, article.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, article.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: author.website\n  }, author.firstName, \" \", author.lastName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, article.body));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Article);\n\n//# sourceURL=webpack://advanced-react/./lib/components/Article.js?");
+
+/***/ }),
+
+/***/ "./lib/components/ArticleList.js":
+/*!***************************************!*\
+  !*** ./lib/components/ArticleList.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Article__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Article */ \"./lib/components/Article.js\");\n\n\n\nvar ArticleList = function ArticleList(props) {\n  // console.log(props.articles);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, Object.values(props.articles).map(function (article) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Article__WEBPACK_IMPORTED_MODULE_1__.default, {\n      key: article.id,\n      article: article,\n      author: props.authors[article.authorId]\n    });\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ArticleList);\n\n//# sourceURL=webpack://advanced-react/./lib/components/ArticleList.js?");
+
+/***/ }),
+
 /***/ "./lib/components/Index.js":
 /*!*********************************!*\
   !*** ./lib/components/Index.js ***!
@@ -38,7 +82,7 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n // const App = () => <h2>Hello React</h2>;\n\nvar App = function App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(42),\n      _useState2 = _slicedToArray(_useState, 2),\n      state = _useState2[0],\n      setState = _useState2[1];\n\n  var asyncFunc = function asyncFunc() {\n    return Promise.resolve(32);\n  };\n\n  var componentDidMount = /*#__PURE__*/function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n      return regeneratorRuntime.wrap(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              _context.t0 = setState;\n              _context.next = 3;\n              return asyncFunc();\n\n            case 3:\n              _context.t1 = _context.sent;\n              (0, _context.t0)(_context.t1);\n\n            case 5:\n            case \"end\":\n              return _context.stop();\n          }\n        }\n      }, _callee);\n    }));\n\n    return function componentDidMount() {\n      return _ref.apply(this, arguments);\n    };\n  }();\n\n  componentDidMount();\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, \"Hello React -- \", state);\n};\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(App, null), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://advanced-react/./lib/components/Index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./lib/components/App.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://advanced-react/./lib/components/Index.js?");
 
 /***/ }),
 
@@ -3277,6 +3321,17 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 "use strict";
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ \"./node_modules/scheduler/cjs/scheduler-tracing.development.js\");\n}\n\n\n//# sourceURL=webpack://advanced-react/./node_modules/scheduler/tracing.js?");
 
+/***/ }),
+
+/***/ "./lib/testData.json":
+/*!***************************!*\
+  !*** ./lib/testData.json ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+eval("module.exports = JSON.parse('{\"data\":{\"articles\":[{\"id\":\"95c12a8f6c88953ca8f8a39da25546e6\",\"title\":\"Introducing React\\'s Error Code System\",\"date\":\"Mon Jul 11 2016 00:00:00 GMT+0000 (UTC)\",\"authorId\":\"2c6aa2cfe3449467d329fa17d6ea230f\",\"body\":\"Building a better developer experience has been one of the things that React deeply cares about, and a crucial part of it is to detect anti-patterns/potential errors early and provide helpful error messages when things (may) go wrong. However, most of these only exist in development mode; in production, we avoid having extra expensive assertions and sending down full error messages in order to reduce the number of bytes sent over the wire.\"},{\"id\":\"cc7781c085cf37aabf120098085ff60c\",\"title\":\"Mixins Considered Harmful\",\"date\":\"Wed Jul 13 2016 00:00:00 GMT+0000 (UTC)\",\"authorId\":\"78ae672985c41fae0ecde0133f41bbfa\",\"body\":\"“How do I share the code between several components?” is one of the first questions that people ask when they learn React. Our answer has always been to use component composition for code reuse. You can define a component and use it in several other components. \\\\nIt is not always obvious how a certain pattern can be solved with composition. React is influenced by functional programming but it came into the field that was dominated by object-oriented libraries. It was hard for engineers both inside and outside of Facebook to give up on the patterns they were used to.\"},{\"id\":\"0a9afe5bb4ecbf4f7f1c77611e9bf1f9\",\"title\":\"Create Apps with No Configuration\",\"date\":\"Fri Jul 22 2016 00:00:00 GMT+0000 (UTC)\",\"authorId\":\"78ae672985c41fae0ecde0133f41bbfa\",\"body\":\"Create React App is a new officially supported way to create single-page React applications. It offers a modern build setup with no configuration. \\\\n\\\\nGetting Starte \\\\nInstallation \\\\nFirst, install the global package:\"},{\"id\":\"9b72140f27e62670dd7bdd1a9f61b48e\",\"title\":\"Relay: State of the State\",\"date\":\"Fri Aug 05 2016 00:00:00 GMT+0000 (UTC)\",\"authorId\":\"335fb02ec8f76c8515821ac9f266d276\",\"body\":\"This month marks a year since we released Relay and we\\'d like to share an update on the project and what\\'s next. \\\\nA Year In Review \\\\nA year after launch, we\\'re incredibly excited to see an active community forming around Relay and that companies such as Twitter are using Relay in production:\"},{\"id\":\"f4ab6de6e61c86f03f6fef46f7c407f1\",\"title\":\"React v15.5.0\",\"date\":\"Fri Apr 07 2017 00:00:00 GMT+0000 (UTC)\",\"authorId\":\"d85577ea34ae50f2dac5347b5219aa23\",\"body\":\"It\\'s been exactly one year since the last breaking change to React. Our next major release, React 16, will include some exciting improvements, including a complete rewrite of React\\'s internals. We take stability seriously, and are committed to bringing those improvements to all of our users with minimal effort.\\\\n To that end, today we\\'re releasing React 15.5.0.\"}],\"authors\":[{\"id\":\"d85577ea34ae50f2dac5347b5219aa23\",\"firstName\":\"Andrew\",\"lastName\":\"Clark\",\"website\":\"https://twitter.com/acdlite\"},{\"id\":\"2c6aa2cfe3449467d329fa17d6ea230f\",\"firstName\":\"Keyan\",\"lastName\":\"Zhang\",\"website\":\"https://twitter.com/keyanzhang\"},{\"id\":\"78ae672985c41fae0ecde0133f41bbfa\",\"firstName\":\"Dan\",\"lastName\":\"Abramov\",\"website\":\"https://twitter.com/dan_abramov\"},{\"id\":\"335fb02ec8f76c8515821ac9f266d276\",\"firstName\":\"Joseph\",\"lastName\":\"Savona\",\"website\":\"https://twitter.com/en_JS\"}]}}');\n\n//# sourceURL=webpack://advanced-react/./lib/testData.json?");
+
 /***/ })
 
 /******/ 	});
@@ -3306,6 +3361,23 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
