@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleList should render a list of articles 1`] = `
+<div>
+  <div
+    className="article"
+  >
+    <div />
+    <div>
+      Invalid Date
+    </div>
+    <div>
+      <a>
+         
+      </a>
+    </div>
+    <div />
+  </div>
+  <div
+    className="article"
+  >
+    <div />
+    <div>
+      Invalid Date
+    </div>
+    <div>
+      <a>
+         
+      </a>
+    </div>
+    <div />
+  </div>
+</div>
+`;
